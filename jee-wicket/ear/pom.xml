@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>jee</artifactId>
+		<groupId>com.jweekend</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.jweekend</groupId>
+	<artifactId>ear</artifactId>
+	<packaging>ear</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.jweekend</groupId>
+			<artifactId>ejb</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.jweekend</groupId>
+			<artifactId>web</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<generateApplicationXml>true</generateApplicationXml>
+					<modules>
+						<ejbModule>
+							<groupId>com.jweekend</groupId>
+							<artifactId>ejb</artifactId>
+						</ejbModule>
+						<webModule>
+							<groupId>com.jweekend</groupId>
+							<artifactId>web</artifactId>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+    <configuration>
+        <wait>false</wait>
+        <container>
+            <containerId>jboss4x</containerId>
+            <zipUrlInstaller>
+                <url>
+                    http://downloads.sourceforge.net/jboss/jboss-4.0.2.zip
+                </url>
+                <installDir>${installDir}</installDir>
+            </zipUrlInstaller>
+        </container>
+        <configuration>
+            <home>
+                ${project.build.directory}/jboss4x/container
+            </home>
+        </configuration>
+    </configuration>
+
+			</plugin>
+		</plugins>
+		<finalName>ear</finalName>
+	</build>
+
+</project>
+
