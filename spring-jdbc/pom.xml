@@ -4,7 +4,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>spring-jdbc</artifactId>
 	<name>spring-jdbc</name>
-	<version>0.8.0</version>
+	<version>0.8.1</version>
 	
 	<dependencies>
 		<dependency>

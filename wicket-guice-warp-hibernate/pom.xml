@@ -5,7 +5,8 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wicket-warp-hibernate</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.0</version>
+	<version>0.8.1</version>
+	<name>Wicket Warp Hibernate</name>
 	
 	<dependencies>
 		<!--  WICKET DEPENDENCIES -->
@@ -18,13 +19,24 @@
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-guice</artifactId>
 			<version>${wicket.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>guice</artifactId>
+					<groupId>com.google.inject</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.4.2</version>
+			<version>${slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -47,6 +59,13 @@
 			<artifactId>warp-persist</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
 		<!-- This is required for warp-persist -->
 		<dependency>
 			<groupId>aopalliance</groupId>
@@ -85,7 +104,7 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>1.8.0</version>
+			<version>1.8.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -153,8 +172,9 @@
 	</build>
 
 	<properties>
-		<wicket.version>1.4.1</wicket.version>
-		<jetty.version>6.1.14</jetty.version>
+		<slf4j.version>1.5.10</slf4j.version>
+		<wicket.version>1.4.5</wicket.version>
+		<jetty.version>6.1.22</jetty.version>
 	</properties>
 
 </project>
