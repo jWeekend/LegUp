@@ -32,11 +32,11 @@ public class JpaEventDAO extends CommonDao<Event> implements EventDao {
 	 * @see com.jweekend.dao.interfaces.Dao#countAll()
 	 */
 	public int countAll() {
-		return ((Long) getJpaTemplate().execute(new JpaCallback() {
+		return (getJpaTemplate().execute(new JpaCallback<Long>() {
 
-			public Object doInJpa(EntityManager em) throws PersistenceException {
+			public Long doInJpa(EntityManager em) throws PersistenceException {
 				Query query = em.createQuery("select count(e) from Event e");
-				return query.getSingleResult();
+				return (Long) query.getSingleResult();
 			}
 		})).intValue();
 	}

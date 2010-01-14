@@ -32,11 +32,11 @@ public class JpaLocationDAO extends CommonDao<Location> implements LocationDao {
 	 * @see com.jweekend.dao.interfaces.Dao#countAll()
 	 */
 	public int countAll() {
-		return ((Long) getJpaTemplate().execute(new JpaCallback() {
+		return ( getJpaTemplate().execute(new JpaCallback<Long>() {
 
-			public Object doInJpa(EntityManager em) throws PersistenceException {
+			public Long doInJpa(EntityManager em) throws PersistenceException {
 				Query query = em.createQuery("select count(l) from Location l");
-				return query.getSingleResult();
+				return (Long) query.getSingleResult();
 			}
 		})).intValue();
 	}

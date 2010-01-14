@@ -25,8 +25,8 @@ public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event> implements EventDa
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Event> findAll() {
-		return (List<Event>) getJpaTemplate().execute(new JpaCallback() {
-			public Object doInJpa(EntityManager em) throws PersistenceException {
+		return getJpaTemplate().execute(new JpaCallback<List<Event>>() {
+			public List<Event> doInJpa(EntityManager em) throws PersistenceException {
 				Query query = em.createQuery("select e from Event e");
 				return query.getResultList();
 			}
@@ -35,9 +35,9 @@ public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event> implements EventDa
 
 	@Transactional
 	public int countAll() {
-		return (Integer) getJpaTemplate().execute(new JpaCallback() {
+		return getJpaTemplate().execute(new JpaCallback<Integer>() {
 			
-			public Object doInJpa(EntityManager em) throws PersistenceException {
+			public Integer doInJpa(EntityManager em) throws PersistenceException {
 				Query query = em.createQuery("select count (e) from Event e");
 				return ((Long) query.getSingleResult()).intValue();
 			}

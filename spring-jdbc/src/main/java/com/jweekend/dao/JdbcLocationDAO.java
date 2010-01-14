@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +24,7 @@ public class JdbcLocationDAO extends SimpleJdbcDaoSupport implements LocationDao
 
 	private SimpleJdbcInsert insertLocation;
 
-	private static class LocationMapper implements ParameterizedRowMapper<Location> {
+	private static class LocationMapper implements RowMapper<Location> {
 		public Location mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Location location = new Location();
 			location.setId(rs.getLong("id"));

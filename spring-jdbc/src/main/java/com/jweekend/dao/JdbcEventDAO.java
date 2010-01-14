@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +27,7 @@ public class JdbcEventDAO extends SimpleJdbcDaoSupport implements EventDao {
 
 	private SimpleJdbcInsert insertEvent;
 
-	private class EventMapper implements ParameterizedRowMapper<Event> {
+	private class EventMapper implements RowMapper<Event> {
 		public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Event event = new Event();
 			event.setId(rs.getLong("id"));
