@@ -35,7 +35,7 @@ public class TestWicketPages {
 			 */
 			@Override
 			protected SpringComponentInjector getSpringInjector() {
-				return  new SpringComponentInjector(this, acm);
+				return  new SpringComponentInjector(this, acm, true);
 			}
 		});
 	}

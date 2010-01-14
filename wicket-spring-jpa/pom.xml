@@ -5,7 +5,8 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wicket-spring-jpa</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.0</version>
+	<version>0.8.1</version>
+	<name>Wicket Spring JPA</name>
 	<!-- 
 	<repositories>
 		<repository>
@@ -33,19 +34,19 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.8</version>
+			<version>1.5.10</version>
 			<scope>runtime</scope>
 		</dependency>
 		<!-- since we want the jcl over slf4j, we need to bump up the version of slf4j-api that wicket brings in -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.5.8</version>
+			<version>1.5.10</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.5.8</version>
+			<version>1.5.10</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -135,7 +136,7 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>1.8.0</version>
+			<version>1.8.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -215,8 +216,8 @@
 	</build>
 
 	<properties>
-		<wicket.version>1.4.1</wicket.version>
-		<jetty.version>6.1.14</jetty.version>
+		<wicket.version>1.4.5</wicket.version>
+		<jetty.version>6.1.22</jetty.version>
 	</properties>
 
 </project>
