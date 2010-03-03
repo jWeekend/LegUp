@@ -23,7 +23,6 @@ public class WicketApplication extends WebApplication
 	 */
 	public WicketApplication()
 	{
-		addComponentInstantiationListener(getGuiceInjector());
 	}
 	
 	protected GuiceComponentInjector getGuiceInjector()
@@ -36,7 +35,8 @@ public class WicketApplication extends WebApplication
 		super.init();
 
 		mountBookmarkablePage("event", EventPage.class);
-
+		
+		addComponentInstantiationListener(getGuiceInjector());
 	}
 
 	/* (non-Javadoc)
