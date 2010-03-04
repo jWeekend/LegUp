@@ -20,6 +20,8 @@ public class HomePage extends WebPage {
 
 	private static final long serialVersionUID = 1L;
 	
+	private int counter = 0;
+	
     public HomePage(final PageParameters parameters) {
     	
     	final FeedbackPanel feedbackPanel = new FeedbackPanel("feedback");
@@ -44,7 +46,7 @@ public class HomePage extends WebPage {
 
 			@Override
 			protected void onEvent(AjaxRequestTarget target) {
-				info("wiQuery ajax click event");
+				info("wiQuery ajax click event: " + counter++);
 				target.addComponent(feedbackPanel);
 			}
     		

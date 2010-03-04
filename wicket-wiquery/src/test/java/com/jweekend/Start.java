@@ -8,6 +8,7 @@ import org.mortbay.jetty.webapp.WebAppContext;
 public class Start {
 
 	public static void main(String[] args) throws Exception {
+		//System.setProperty("wicket.configuration", "DEPLOYMENT");
 		Server server = new Server();
 		SocketConnector connector = new SocketConnector();
 		connector.setPort(8080);
