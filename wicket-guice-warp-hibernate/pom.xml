@@ -98,7 +98,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -173,8 +173,8 @@
 	</build>
 
 	<properties>
-		<slf4j.version>1.5.10</slf4j.version>
-		<wicket.version>1.4.5</wicket.version>
+		<slf4j.version>1.5.11</slf4j.version>
+		<wicket.version>1.4.7</wicket.version>
 		<jetty.version>6.1.22</jetty.version>
 	</properties>
 

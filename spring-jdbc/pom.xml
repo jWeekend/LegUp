@@ -4,7 +4,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>spring-jdbc-standalone</artifactId>
 	<name>spring-jdbc</name>
-	<version>0.8.1</version>
+	<version>0.8.2</version>
 	
 	<dependencies>
 		<dependency>
@@ -21,13 +21,13 @@
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.2.2</version>
+			<version>1.4</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		
@@ -120,6 +120,6 @@
 	</build>
 	
 	<properties>
-		<org.springframework.version>3.0.0.RELEASE</org.springframework.version>
+		<org.springframework.version>3.0.1.RELEASE</org.springframework.version>
 	</properties>
 </project>
