@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.orm.jpa.JpaCallback;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +14,7 @@ import com.jweekend.data.dataobjects.Event;
 
 /**
  * @author Richard Wilkinson - richard.wilkinson@jweekend.com
- * 
+ *
  */
 public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event> implements EventDao {
 
@@ -22,12 +22,11 @@ public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event> implements EventDa
 		super(Event.class);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Event> findAll() {
 		return getJpaTemplate().execute(new JpaCallback<List<Event>>() {
 			public List<Event> doInJpa(EntityManager em) throws PersistenceException {
-				Query query = em.createQuery("select e from Event e");
+				TypedQuery<Event> query = em.createQuery("select e from Event e", Event.class);
 				return query.getResultList();
 			}
 		});
@@ -36,12 +35,12 @@ public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event> implements EventDa
 	@Transactional
 	public int countAll() {
 		return getJpaTemplate().execute(new JpaCallback<Integer>() {
-			
+
 			public Integer doInJpa(EntityManager em) throws PersistenceException {
-				Query query = em.createQuery("select count (e) from Event e");
-				return ((Long) query.getSingleResult()).intValue();
+				TypedQuery<Long> query = em.createQuery("select count (e) from Event e", Long.class);
+				return (query.getSingleResult()).intValue();
 			}
 		});
-		
+
 	}
 }

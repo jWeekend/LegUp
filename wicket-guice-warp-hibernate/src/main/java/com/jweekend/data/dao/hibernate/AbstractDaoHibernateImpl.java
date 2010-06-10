@@ -19,19 +19,19 @@ import com.wideplay.warp.persist.Transactional;
  */
 @SuppressWarnings("unchecked")
 public abstract class AbstractDaoHibernateImpl<T extends DomainObject> implements Dao<T> {
-	
+
 	private Class<T> domainClass;
-	
+
 	@Inject
 	Provider<Session> session;
 
 	public AbstractDaoHibernateImpl(Class<T> domainClass) {
 		this.domainClass = domainClass;
 	}
-	
+
 	@Transactional
 	public void delete(T object)
-	{ 
+	{
 		session.get().delete(object);
 	}
 	@Transactional(type=TransactionType.READ_ONLY)
@@ -39,7 +39,7 @@ public abstract class AbstractDaoHibernateImpl<T extends DomainObject> implement
 	{
 		return (T) session.get().get(domainClass, id);
 	}
-	
+
 	@Transactional
 	public void save(T object)
 	{
@@ -49,14 +49,14 @@ public abstract class AbstractDaoHibernateImpl<T extends DomainObject> implement
 	public List<T> findAll()
 	{
 		Criteria criteria = session.get().createCriteria(domainClass);
-		return (List<T>) criteria.list();
+		return criteria.list();
 	}
 	@Transactional(type=TransactionType.READ_ONLY)
 	public int countAll() {
 		Criteria criteria = session.get().createCriteria(domainClass);
 		criteria.setProjection(Projections.rowCount());
-		return (Integer) criteria.uniqueResult();
+		return ((Long) criteria.uniqueResult()).intValue();
 	}
-	
+
 }
 

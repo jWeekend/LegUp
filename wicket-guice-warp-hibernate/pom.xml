@@ -8,6 +8,14 @@
 	<version>0.8.3</version>
 	<name>Wicket Warp Hibernate</name>
 	
+	<repositories>
+		<repository>
+			<id>jboss</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.com/maven2/</url>
+		</repository>
+	</repositories>
+	
 	<dependencies>
 		<!--  WICKET DEPENDENCIES -->
 		<dependency>
@@ -57,15 +65,21 @@
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate</artifactId>
-			<version>3.2.7.ga</version>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.5.1-Final</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
-			<version>3.4.0.GA</version>
+			<version>3.5.1-Final</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.8.0.GA</version>
+        </dependency>
 
 
 		<dependency>
