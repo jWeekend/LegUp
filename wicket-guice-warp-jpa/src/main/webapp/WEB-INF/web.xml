@@ -8,7 +8,7 @@
 	<!-- Warp Filter -->
 	<filter>
 		<filter-name>warpSessionFilter</filter-name>
-		<filter-class>com.wideplay.warp.jpa.SessionPerRequestFilter</filter-class>
+		<filter-class>com.wideplay.warp.persist.PersistenceFilter</filter-class>
 	</filter>
 
 	<filter-mapping>

@@ -5,7 +5,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wicket-warp-hibernate</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.2</version>
+	<version>0.8.3</version>
 	<name>Wicket Warp Hibernate</name>
 	
 	<dependencies>
@@ -19,12 +19,6 @@
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-guice</artifactId>
 			<version>${wicket.version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>guice</artifactId>
-					<groupId>com.google.inject</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
@@ -53,28 +47,14 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- You will need to install this into your repo manually -->
+		<!-- You will need to install this yourself from http://warp-persist.googlecode.com/svn/trunk/warp-persist/dist/ -->
 		<dependency>
-			<groupId>com.wideplay</groupId>
+			<groupId>com.wideplay.warp</groupId>
 			<artifactId>warp-persist</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>1.0</version>
-		</dependency>
-		
-		<!-- This is required for warp-persist -->
-		<dependency>
-			<groupId>aopalliance</groupId>
-			<artifactId>aopalliance</artifactId>
-			<version>1.0</version>
+			<version>2.0-20090214</version>
 		</dependency>
 		
 		<!-- Hibernate -->
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate</artifactId>
@@ -174,7 +154,7 @@
 
 	<properties>
 		<slf4j.version>1.5.11</slf4j.version>
-		<wicket.version>1.4.7</wicket.version>
+		<wicket.version>1.4.9</wicket.version>
 		<jetty.version>6.1.22</jetty.version>
 	</properties>
 

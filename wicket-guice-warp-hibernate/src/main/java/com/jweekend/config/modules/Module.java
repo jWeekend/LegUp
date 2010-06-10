@@ -4,14 +4,11 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.jweekend.DataInitialiser;
 import com.jweekend.data.dao.hibernate.EventDaoHibernateImp;
 import com.jweekend.data.dao.interfaces.EventDao;
 import com.jweekend.data.dataobjects.Event;
 import com.wideplay.warp.persist.PersistenceService;
-import com.wideplay.warp.persist.TransactionStrategy;
 import com.wideplay.warp.persist.UnitOfWork;
 
 /**
@@ -25,16 +22,14 @@ public class Module extends AbstractModule {
 	 */
 	@Override
 	protected void configure() {
-		bind(Initializer.class).asEagerSingleton();
 		if(initData())
 		{
 			bind(DataInitialiser.class).asEagerSingleton();
 		}
-		
+
 		//warp persist stuff
 		install(PersistenceService.usingHibernate()
 				.across(UnitOfWork.REQUEST)
-				.transactedWith(TransactionStrategy.LOCAL)
 				.buildModule());
 
 		////hibernate stuff
@@ -47,14 +42,6 @@ public class Module extends AbstractModule {
 		bind(EventDao.class).to(EventDaoHibernateImp.class);
 	}
 
-	@Singleton
-	public static class Initializer {
-		@Inject
-		Initializer(com.wideplay.warp.persist.PersistenceService service) {
-			service.start();
-		}
-	}
-	
 	protected boolean initData()
 	{
 		return true;

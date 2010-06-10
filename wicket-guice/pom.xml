@@ -5,7 +5,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>guice-wicket</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.2</version>
+	<version>0.8.3</version>
 	<name>Wicket Guice</name>
 	
 	<dependencies>
@@ -127,7 +127,7 @@
 
 	<properties>
 		<slf4j.version>1.5.11</slf4j.version>
-		<wicket.version>1.4.7</wicket.version>
+		<wicket.version>1.4.9</wicket.version>
 		<jetty.version>6.1.22</jetty.version>
 	</properties>
 
