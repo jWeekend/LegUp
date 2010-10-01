@@ -5,13 +5,13 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wicket-spring-jpa</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.3</version>
+	<version>0.8.4</version>
 	<name>Wicket Spring JPA</name>
 	<repositories>
 		<repository>
 			<id>jboss</id>
 			<name>JBoss Repository</name>
-			<url>http://repository.jboss.com/maven2/</url>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
 
@@ -110,7 +110,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>3.5.1-Final</version>
+			<version>3.5.6-Final</version>
 		</dependency>
 
 		<dependency>
@@ -205,9 +205,9 @@
 
 	<properties>
 		<slf4j.version>1.5.11</slf4j.version>
-		<wicket.version>1.4.9</wicket.version>
-		<jetty.version>6.1.22</jetty.version>
-		<org.springframework.version>3.0.1.RELEASE</org.springframework.version>
+		<wicket.version>1.4.12</wicket.version>
+		<jetty.version>6.1.25</jetty.version>
+		<org.springframework.version>3.0.4.RELEASE</org.springframework.version>
 	</properties>
 
 </project>

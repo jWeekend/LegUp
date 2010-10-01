@@ -6,6 +6,7 @@
 	<artifactId>jee</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
+	<name>Wicket JEE</name>
 	<modules>
 		<module>ejb</module>
 		<module>web</module>
