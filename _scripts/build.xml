@@ -11,39 +11,33 @@
         </condition>		
 		<!-- <deploy dir="jee-wicket"/>	-->		
 		<deploy dir="spring-jdbc"/>
-		<deploy dir="spring-jpa"/>
-		<deploy dir="wicket-guice"/>
+		<deploy dir="spring-jpa"/>		
+		<deploy dir="wicket-guice"/>		
 		<deploy dir="wicket-guice-warp-hibernate"/>
-		<deploy dir="wicket-guice-warp-jpa"/>
-		<deploy dir="wicket-scala"/>
-		<deploy dir="wicket-spring-jpa"/>
-		<deploy dir="wicket-wiquery"/>
+		<deploy dir="wicket-guice-warp-jpa"/>		
+		<deploy dir="wicket-scala"/>		
+		<deploy dir="wicket-spring-jpa"/>		
+		<deploy dir="wicket-wiquery"/>		
 	</target>
 
 	<macrodef name="deploy">
-        <attribute name="dir"/>
-        <sequential>			
+        <attribute name="dir" default="NOT_SET"/>		
+        <sequential>				
 			<antcall target="exec-mvn">
 				<param name="exec.dir" value="../@{dir}"/>	
 				<param name="mvn.args" value="clean test"/>
-			</antcall>
+			</antcall>	
 			<antcall target="exec-mvn">
 				<param name="exec.dir" value="../@{dir}"/>	
-				<param name="mvn.args" value="clean test archetype:create-from-project -Darchetype.languages=scala,java -Darchetype.filteredExtentions=scala,html,java,properties,xml"/>
-			</antcall>
-			<property name="archetype.pom.xml" value="../@{dir}/target/generated-sources/archetype/pom.xml"/>
-			<xmlproperty file="${archetype.pom.xml}"/>
-			<echo>artifactId='${project.artifactId}'</echo>	
-			<echo>old version='${project.version}'</echo>
-			<echo>using legup version: '${legup.version}'</echo>
-			<copy file="pom-template.xml" tofile="${archetype.pom.xml}" overwrite="true"/>
-			<replace file="${archetype.pom.xml}" token="__ARTIFACT_ID__" value="${project.artifactId}"/>
-			<replace file="${archetype.pom.xml}" token="__VERSION__" value="${legup.version}"/>
+				<param name="mvn.args" value="clean archetype:create-from-project -Darchetype.languages=scala,java -Darchetype.filteredExtentions=scala,html,java,properties,xml"/>
+			</antcall>			
+			<antcall target="create-deploy-pom">
+				<param name="deploy.pom.xml" value="../@{dir}/target/generated-sources/archetype/pom.xml"/>
+			</antcall>			
 			<antcall target="exec-mvn">
-				<param name="exec.dir" value="../@{dir}/target/generated-sources/archetype"/>
-				<param name="mvn.args" value="clean"/>	
-				<!-- <param name="mvn.args" value="clean deploy"/> -->
-			</antcall>           
+				<param name="exec.dir" value="../@{dir}/target/generated-sources/archetype/"/>				
+				<param name="mvn.args" value="clean deploy"/>
+			</antcall>			
         </sequential>        
     </macrodef>
 	
@@ -54,6 +48,17 @@
 		<exec executable="${exec.executable}" dir="${exec.dir}" failonerror="true">
 			<arg line="${exec.firstargs} ${mvn.args}"/>			
 		</exec>	
-	</target>	
+	</target>
+	
+	<target name="create-deploy-pom">		
+		<xmlproperty file="${deploy.pom.xml}"/>
+		<echo>artifactId='${project.artifactId}'</echo>	
+		<echo>old version='${project.version}'</echo>
+		<echo>using legup version: '${legup.version}'</echo>						
+		<delete file="${deploy.pom.xml}"/>
+		<copy file="pom-template.xml" tofile="${deploy.pom.xml}"/>
+		<replace file="${deploy.pom.xml}" token="__ARTIFACT_ID__" value="${project.artifactId}"/>			
+		<replace file="${deploy.pom.xml}" token="__VERSION__" value="${legup.version}"/>	
+	</target>
               
 </project>
