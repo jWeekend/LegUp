@@ -5,6 +5,7 @@
     <artifactId>LegUpScalaWicketQuickStart</artifactId>
     <packaging>war</packaging>
     <version>0.8.4</version>
+	<name>Wicket Scala</name>
 
     <dependencies>
         <dependency>
