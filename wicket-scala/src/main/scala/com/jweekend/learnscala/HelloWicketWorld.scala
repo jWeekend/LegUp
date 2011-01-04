@@ -14,7 +14,7 @@ class HomePage extends WebPage {
   var name = "Hello!"
   val form = new Form[String]("form")
   add(form)
-  form.add(new TextField[String]("nameField", new ToySafeModel[String](name, {null; name = _})))
+  form.add(new TextField[String]("nameField", new ToySafeModel[String](name, { name = _ })))
   form.add(new Label("nameLabel", new ToySafeModel[String](name , null)))
 }
 
