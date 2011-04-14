@@ -5,7 +5,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wiquery-wicket</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.4</version>
+	<version>0.8.5</version>
 	<name>Wicket wiQuery</name>
 	
 	<repositories>
@@ -58,7 +58,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -128,9 +128,9 @@
 
 	<properties>
 		<slf4j.version>1.5.11</slf4j.version>
-		<wicket.version>1.4.12</wicket.version>
+		<wicket.version>1.4.17</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
-		<wiquery.version>1.0.2</wiquery.version>
+		<wiquery.version>1.2.3</wiquery.version>
 	</properties>
 
 </project>
