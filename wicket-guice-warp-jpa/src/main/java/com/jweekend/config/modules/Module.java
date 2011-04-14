@@ -6,7 +6,7 @@ import com.jweekend.data.dao.interfaces.EventDao;
 import com.jweekend.data.dao.jpa.EventDaoJPAImp;
 import com.wideplay.warp.persist.PersistenceService;
 import com.wideplay.warp.persist.UnitOfWork;
-import com.wideplay.warp.persist.jpa.JpaUnit;
+import com.wideplay.warp.jpa.JpaUnit;
 
 /**
  * @author Richard Wilkinson - richard.wilkinson@jweekend.com
