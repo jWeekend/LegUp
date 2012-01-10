@@ -16,17 +16,17 @@
 		</repository>
 		<repository>
 			<id>warp-persist</id>
-			<name>Warp Persist Snapshots</name>
-			<url>http://warp-persist-neodatis.googlecode.com/svn/trunk/repo/</url>
+			<name>Warp Persist</name>
+			<url>http://gwt-enterprise-patterns.googlecode.com/svn/maven2/repo/</url>
 		</repository>		
 	</repositories>
 	
 	<dependencies>
 		<!--  WICKET DEPENDENCIES -->
 		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket</artifactId>
-			<version>${wicket.version}</version>
+    		<groupId>org.apache.wicket</groupId>
+    		<artifactId>wicket-core</artifactId>
+    		<version>${wicket.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
@@ -61,9 +61,9 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>com.wideplay.warp</groupId>
+			<groupId>com.wideplay.warp.persist</groupId>
 			<artifactId>warp-persist</artifactId>
-			<version>2.0-SNAPSHOT</version>
+			<version>2.0-20090214</version>
 		</dependency>
 		
 		<!-- JPA -->
@@ -161,7 +161,7 @@
 
 	<properties>
 		<slf4j.version>1.5.11</slf4j.version>
-		<wicket.version>1.4.17</wicket.version>
+		<wicket.version>1.5.3</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
