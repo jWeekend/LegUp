@@ -1,15 +1,16 @@
 package com.jweekend;
 
-import org.apache.wicket.PageParameters;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.odlabs.wiquery.core.events.Event;
 import org.odlabs.wiquery.core.events.MouseEvent;
 import org.odlabs.wiquery.core.events.WiQueryAjaxEventBehavior;
 import org.odlabs.wiquery.core.events.WiQueryEventBehavior;
 import org.odlabs.wiquery.core.javascript.JsScope;
+import org.odlabs.wiquery.core.javascript.JsStatement;
 import org.odlabs.wiquery.ui.tabs.Tabs;
 
 /**
@@ -47,7 +48,12 @@ public class HomePage extends WebPage {
 			@Override
 			protected void onEvent(AjaxRequestTarget target) {
 				info("wiQuery ajax click event: " + counter++);
-				target.addComponent(feedbackPanel);
+				target.add(feedbackPanel);
+			}
+			
+			@Override
+			public JsStatement statement() {
+				return null;
 			}
     		
     	});
