@@ -1,7 +1,5 @@
 package com.jweekend;
 
-import javax.naming.InitialContext;
-
 import org.apache.wicket.Page;
 import org.apache.wicket.guice.GuiceComponentInjector;
 import org.apache.wicket.protocol.http.WebApplication;
@@ -36,9 +34,8 @@ public class WicketApplication extends WebApplication
 	protected void init() {
 		super.init();
 
-		addComponentInstantiationListener(getGuiceInjector());
-		
-		mountBookmarkablePage("event", EventPage.class);
+		getComponentInstantiationListeners().add(getGuiceInjector());		
+		mountPage("event", EventPage.class);
 	}
 
 	/* (non-Javadoc)

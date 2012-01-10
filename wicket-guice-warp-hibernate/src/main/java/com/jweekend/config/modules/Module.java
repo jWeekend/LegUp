@@ -1,6 +1,5 @@
 package com.jweekend.config.modules;
 
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 import com.google.inject.AbstractModule;
@@ -33,7 +32,7 @@ public class Module extends AbstractModule {
 				.buildModule());
 
 		////hibernate stuff
-		AnnotationConfiguration annotationConfiguration = new AnnotationConfiguration();
+		Configuration annotationConfiguration = new Configuration();
 		annotationConfiguration.configure();
 		annotationConfiguration.addAnnotatedClass(Event.class);
 		bind(Configuration.class).toInstance(annotationConfiguration);
