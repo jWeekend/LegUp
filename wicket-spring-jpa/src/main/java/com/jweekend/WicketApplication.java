@@ -32,9 +32,9 @@ public class WicketApplication extends WebApplication
 	protected void init() {
 		super.init();
 
-		mountBookmarkablePage("event", EventPage.class);
+		mountPage("event", EventPage.class);
 		
-		addComponentInstantiationListener(getSpringInjector());
+		getComponentInstantiationListeners().add(getSpringInjector());
 
 	}
 

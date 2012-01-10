@@ -2,7 +2,6 @@ package com.jweekend.pages;
 
 import java.util.List;
 
-import org.apache.wicket.PageParameters;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -14,6 +13,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.jweekend.data.dao.interfaces.EventDao;
@@ -23,6 +23,8 @@ import com.jweekend.data.dataobjects.Event;
  *
  */
 public class EventPage extends WebPage {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@SpringBean
 	private EventDao eventDao;
@@ -60,7 +62,12 @@ public class EventPage extends WebPage {
 				newEvent.setLocation(event.getLocation());
 				newEvent.setTitle(event.getTitle());
 				eventDao.save(newEvent);
-				target.addComponent(wmc);
+				target.add(wmc);
+			}
+			
+			@Override
+			protected void onError(AjaxRequestTarget target, Form<?> form) {
+				
 			}
 		});
 		
