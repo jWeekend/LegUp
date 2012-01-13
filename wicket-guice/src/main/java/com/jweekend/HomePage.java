@@ -1,6 +1,5 @@
 package com.jweekend;
 
-import org.apache.wicket.PageParameters;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.WebPage;
@@ -8,6 +7,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.google.inject.Inject;
 import com.jweekend.service.HelloService;
@@ -50,7 +50,12 @@ public class HomePage extends WebPage {
 			@Override
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 				HomePage.this.text = helloService.sayHello(name);
-				target.addComponent(label);
+				target.add(label);
+			}
+			
+			@Override
+			protected void onError(AjaxRequestTarget target, Form<?> form) {
+				
 			}
 		});
 		
@@ -59,7 +64,12 @@ public class HomePage extends WebPage {
 			@Override
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 				HomePage.this.text = helloService.sayGoodbye(name);
-				target.addComponent(label);
+				target.add(label);
+			}
+			
+			@Override
+			protected void onError(AjaxRequestTarget target, Form<?> form) {
+				
 			}
 		});
         

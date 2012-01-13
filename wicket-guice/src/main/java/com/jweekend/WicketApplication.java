@@ -28,7 +28,7 @@ public class WicketApplication extends WebApplication
 	@Override
 	protected void init() {
 		super.init();
-		addComponentInstantiationListener(new GuiceComponentInjector(this, getGuiceInjector()));
+		getComponentInstantiationListeners().add(new GuiceComponentInjector(this, getGuiceInjector()));
 	}
 	
 	protected Injector getGuiceInjector()
