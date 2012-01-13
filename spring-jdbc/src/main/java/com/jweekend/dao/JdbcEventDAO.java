@@ -1,6 +1,5 @@
 package com.jweekend.dao;
 
-import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -8,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,7 +20,7 @@ import com.jweekend.entity.Event;
  * 
  */
 @Transactional
-public class JdbcEventDAO extends SimpleJdbcDaoSupport implements EventDao {
+public class JdbcEventDAO extends NamedParameterJdbcDaoSupport implements EventDao {
 
 	private LocationDao locationDAO;
 
@@ -36,7 +35,7 @@ public class JdbcEventDAO extends SimpleJdbcDaoSupport implements EventDao {
 			event.setDate(rs.getTimestamp("date"));
 			Object location = rs.getObject("location");
 			if (location != null) {
-				event.setLocation(locationDAO.load((Serializable) location));
+				event.setLocation(locationDAO.load(new Long((Integer) location)));
 			}
 			return event;
 		}
@@ -71,7 +70,7 @@ public class JdbcEventDAO extends SimpleJdbcDaoSupport implements EventDao {
 	 * com.jweekend.dao.interfaces.Dao#delete(com.jweekend.entity.DomainObject)
 	 */
 	public void delete(Event o) {
-		getSimpleJdbcTemplate().update("delete from Event where id = ?", o.getId());
+		getJdbcTemplate().update("delete from Event where id = ?", o.getId());
 	}
 
 	/*
@@ -81,7 +80,7 @@ public class JdbcEventDAO extends SimpleJdbcDaoSupport implements EventDao {
 	 */
 	public List<Event> findAll() {
 		final String sql = "select * from Event";
-		return getSimpleJdbcTemplate().query(sql, new EventMapper());
+		return getJdbcTemplate().query(sql, new EventMapper());
 	}
 
 	/*
@@ -89,9 +88,9 @@ public class JdbcEventDAO extends SimpleJdbcDaoSupport implements EventDao {
 	 * 
 	 * @see com.jweekend.dao.interfaces.Dao#load(java.io.Serializable)
 	 */
-	public Event load(Serializable id) {
+	public Event load(Long id) {
 		String sql = "select * from Event where id = ?";
-		return getSimpleJdbcTemplate().queryForObject(sql, new EventMapper(), id);
+		return getJdbcTemplate().queryForObject(sql, new EventMapper(), id);
 	}
 
 	/*
@@ -110,7 +109,7 @@ public class JdbcEventDAO extends SimpleJdbcDaoSupport implements EventDao {
 
 		if (o.getId() != null) {
 			// this is an update
-			getSimpleJdbcTemplate().update(update, o.getName(), o.getDescription(), o.getDate(), o.getLocation() != null ? o.getLocation().getId() : null);
+			getJdbcTemplate().update(update, o.getName(), o.getDescription(), o.getDate(), o.getLocation() != null ? o.getLocation().getId() : null);
 		}
 		else {
 			// this is an insert

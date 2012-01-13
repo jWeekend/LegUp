@@ -6,6 +6,6 @@ import com.jweekend.entity.Location;
  * @author Richard Wilkinson - richard.wilkinson@jweekend.com
  * 
  */
-public interface LocationDao extends Dao<Location> {
+public interface LocationDao extends Dao<Location, Long> {
 
 }

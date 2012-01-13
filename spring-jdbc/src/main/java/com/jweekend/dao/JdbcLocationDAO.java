@@ -1,6 +1,5 @@
 package com.jweekend.dao;
 
-import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -8,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +19,7 @@ import com.jweekend.entity.Location;
  * 
  */
 @Transactional
-public class JdbcLocationDAO extends SimpleJdbcDaoSupport implements LocationDao {
+public class JdbcLocationDAO extends NamedParameterJdbcDaoSupport implements LocationDao {
 
 	private SimpleJdbcInsert insertLocation;
 
@@ -63,7 +62,7 @@ public class JdbcLocationDAO extends SimpleJdbcDaoSupport implements LocationDao
 	 * com.jweekend.dao.interfaces.Dao#delete(com.jweekend.entity.DomainObject)
 	 */
 	public void delete(Location o) {
-		getSimpleJdbcTemplate().update("delete from Location where id = ?", o.getId());
+		getJdbcTemplate().update("delete from Location where id = ?", o.getId());
 	}
 
 	/*
@@ -73,7 +72,7 @@ public class JdbcLocationDAO extends SimpleJdbcDaoSupport implements LocationDao
 	 */
 	public List<Location> findAll() {
 		final String sql = "select * from Location";
-		return getSimpleJdbcTemplate().query(sql, new LocationMapper());
+		return getJdbcTemplate().query(sql, new LocationMapper());
 	}
 
 	/*
@@ -81,9 +80,9 @@ public class JdbcLocationDAO extends SimpleJdbcDaoSupport implements LocationDao
 	 * 
 	 * @see com.jweekend.dao.interfaces.Dao#load(java.io.Serializable)
 	 */
-	public Location load(Serializable id) {
+	public Location load(Long id) {
 		String sql = "select * from Location where id = ?";
-		return getSimpleJdbcTemplate().queryForObject(sql, new LocationMapper(), id);
+		return getJdbcTemplate().queryForObject(sql, new LocationMapper(), id);
 	}
 
 	/*
@@ -96,7 +95,7 @@ public class JdbcLocationDAO extends SimpleJdbcDaoSupport implements LocationDao
 		final String update = "update Location set name = ?, address = ?";
 		if (o.getId() != null) {
 			// this is an update
-			getSimpleJdbcTemplate().update(update, o.getName(), o.getAddress());
+			getJdbcTemplate().update(update, o.getName(), o.getAddress());
 		}
 		else {
 			// this is an insert

@@ -11,7 +11,21 @@ public class Location extends DomainObject {
 	private Long id;
 	private String name;
 	private String address;
+	
+	/**
+	 * Contructor.
+	 */
+	public Location() {
+	}
 
+	/**
+	 * Cosntructor.
+	 * @param id
+	 */
+	public Location(Long id) {
+		this.id = id;
+	}
+	
 	public Long getId() {
 		return id;
 	}
