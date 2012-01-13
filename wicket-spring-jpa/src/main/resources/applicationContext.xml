@@ -20,9 +20,9 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
 	<bean id="eventDao" class="com.jweekend.data.dao.jpa.EventDaoJPAImp">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
 	<bean class="com.jweekend.DataInitialiser" init-method="dataInit">

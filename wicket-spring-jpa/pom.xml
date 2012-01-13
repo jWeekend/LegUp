@@ -69,7 +69,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -209,7 +208,7 @@
 		<slf4j.version>1.5.11</slf4j.version>
 		<wicket.version>1.5.3</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
-		<org.springframework.version>3.0.5.RELEASE</org.springframework.version>
+		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 

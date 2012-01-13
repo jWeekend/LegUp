@@ -22,7 +22,6 @@
 
 
 	<bean id="eventDao" class="com.jweekend.data.dao.jpa.EventDaoJPAImp">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
 
