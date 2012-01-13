@@ -2,11 +2,8 @@ package com.jweekend.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
-import org.springframework.orm.jpa.JpaCallback;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jweekend.dao.interfaces.LocationDao;
@@ -17,7 +14,7 @@ import com.jweekend.entity.Location;
  *
  */
 @Transactional
-public class JpaLocationDAO extends CommonDao<Location> implements LocationDao {
+public class JpaLocationDAO extends CommonDao<Location, Long> implements LocationDao {
 
 	/**
 	 * @param clazz
@@ -32,13 +29,8 @@ public class JpaLocationDAO extends CommonDao<Location> implements LocationDao {
 	 * @see com.jweekend.dao.interfaces.Dao#countAll()
 	 */
 	public int countAll() {
-		return ( getJpaTemplate().execute(new JpaCallback<Long>() {
-
-			public Long doInJpa(EntityManager em) throws PersistenceException {
-				TypedQuery<Long> query = em.createQuery("select count(l) from Location l", Long.class);
-				return query.getSingleResult();
-			}
-		})).intValue();
+		TypedQuery<Long> query = getEntityManager().createQuery("select count(l) from Location l", Long.class);
+		return query.getSingleResult().intValue();
 	}
 
 	/*
@@ -46,9 +38,9 @@ public class JpaLocationDAO extends CommonDao<Location> implements LocationDao {
 	 *
 	 * @see com.jweekend.dao.interfaces.Dao#findAll()
 	 */
-	@SuppressWarnings("unchecked")
 	public List<Location> findAll() {
-		return getJpaTemplate().find("select l from Location l");
+		TypedQuery<Location> query = getEntityManager().createQuery("select l from Location l", Location.class);
+		return query.getResultList();
 	}
 
 }

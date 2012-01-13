@@ -2,22 +2,21 @@ package com.jweekend.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
-import org.springframework.orm.jpa.JpaCallback;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jweekend.dao.interfaces.EventDao;
 import com.jweekend.entity.Event;
 
 /**
+ * 
  * @author Richard Wilkinson - richard.wilkinson@jweekend.com
+ * @author Erensto Reinaldo 
  *
  */
 @Transactional
-public class JpaEventDAO extends CommonDao<Event> implements EventDao {
+public class JpaEventDAO extends CommonDao<Event, Long> implements EventDao {
 
 	/**
 	 * @param clazz
@@ -31,14 +30,9 @@ public class JpaEventDAO extends CommonDao<Event> implements EventDao {
 	 *
 	 * @see com.jweekend.dao.interfaces.Dao#countAll()
 	 */
-	public int countAll() {
-		return (getJpaTemplate().execute(new JpaCallback<Long>() {
-
-			public Long doInJpa(EntityManager em) throws PersistenceException {
-				TypedQuery<Long> query = em.createQuery("select count(e) from Event e", Long.class);
-				return query.getSingleResult();
-			}
-		})).intValue();
+	public int countAll() {		
+		TypedQuery<Long> query = getEntityManager().createQuery("select count(e) from Event e", Long.class);
+		return query.getSingleResult().intValue();
 	}
 
 	/*
@@ -46,9 +40,9 @@ public class JpaEventDAO extends CommonDao<Event> implements EventDao {
 	 *
 	 * @see com.jweekend.dao.interfaces.Dao#findAll()
 	 */
-	@SuppressWarnings("unchecked")
 	public List<Event> findAll() {
-		return getJpaTemplate().find("select e from Event e");
+		TypedQuery<Event> query = getEntityManager().createQuery("select e from Event e", Event.class);
+		return query.getResultList();
 	}
 
 }

@@ -22,11 +22,9 @@
 
 
 	<bean id="eventDao" class="com.jweekend.dao.JpaEventDAO">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
 	<bean id="locationDao" class="com.jweekend.dao.JpaLocationDAO">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
 </beans>
