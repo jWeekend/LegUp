@@ -5,7 +5,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wicket-warp-hibernate</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.5</version>
+	<version>0.8.6</version>
 	<name>Wicket Warp Hibernate</name>
 	
 	<repositories>
