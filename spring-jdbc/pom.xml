@@ -4,7 +4,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>spring-jdbc-standalone</artifactId>
 	<name>Spring JDBC</name>
-	<version>0.8.5</version>
+	<version>0.8.6</version>
 	
 	<dependencies>
 		<dependency>
