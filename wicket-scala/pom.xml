@@ -4,7 +4,7 @@
     <groupId>com.jweekend</groupId>
     <artifactId>wicket-scala</artifactId>
     <packaging>war</packaging>
-    <version>0.8.5</version>
+    <version>0.8.6</version>
 	<name>Wicket Scala</name>
 
     <dependencies>
