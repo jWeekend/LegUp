@@ -5,7 +5,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wiquery-wicket</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.6</version>
+	<version>0.8.7</version>
 	<name>Wicket wiQuery</name>
 	
 	<repositories>
@@ -136,7 +136,7 @@
 
 	<properties>
 		<slf4j.version>1.5.11</slf4j.version>
-		<wicket.version>1.5.3</wicket.version>
+		<wicket.version>1.5.4</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
 		<wiquery.version>1.5.3</wiquery.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
