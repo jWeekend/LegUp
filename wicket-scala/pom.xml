@@ -1,10 +1,11 @@
-<project>
-    
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">    
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jweekend</groupId>
     <artifactId>wicket-scala</artifactId>
     <packaging>war</packaging>
-    <version>0.8.6</version>
+    <version>0.8.7</version>
 	<name>Wicket Scala</name>
 
     <dependencies>
@@ -164,7 +165,7 @@
 		<scala.version>2.9.1</scala.version>
     	<slf4j.version>1.5.11</slf4j.version>
 		<log4j.version>1.2.14</log4j.version>
-    	<wicket.version>1.5.3</wicket.version>
+    	<wicket.version>1.5.4</wicket.version>
     	<jetty.version>6.1.25</jetty.version>
 		<junit.version>4.8.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
