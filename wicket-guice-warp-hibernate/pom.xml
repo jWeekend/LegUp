@@ -5,7 +5,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wicket-warp-hibernate</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.7</version>
+	<version>0.8.8</version>
 	<name>Wicket Warp Hibernate</name>
 	
 	<repositories>
@@ -46,11 +46,11 @@
 			<version>${slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-			<scope>runtime</scope>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>
@@ -172,7 +172,7 @@
 	</build>
 
 	<properties>
-		<slf4j.version>1.5.11</slf4j.version>
+		<slf4j.version>1.6.4</slf4j.version>
 		<wicket.version>1.5.4</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
