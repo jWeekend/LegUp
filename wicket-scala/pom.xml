@@ -34,16 +34,9 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-			<scope>runtime</scope>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.0</version>
 		</dependency>
         
         <!--  JETTY DEPENDENCIES FOR TESTING  -->
@@ -163,7 +156,7 @@
 	
     <properties>
 		<scala.version>2.9.1</scala.version>
-    	<slf4j.version>1.5.11</slf4j.version>
+    	<slf4j.version>1.6.4</slf4j.version>
 		<log4j.version>1.2.14</log4j.version>
     	<wicket.version>1.5.4</wicket.version>
     	<jetty.version>6.1.25</jetty.version>
