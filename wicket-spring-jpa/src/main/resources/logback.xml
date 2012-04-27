@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{10} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="wicket" level="INFO" />  
+  <logger name="wicket.protocol.http.HttpSessionStore" level="INFO" />
+  <logger name="wicket.version" level="INFO" />
+  <logger name="wicket.RequestCycle" level="INFO" />
+  
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+  
+  
+</configuration>
