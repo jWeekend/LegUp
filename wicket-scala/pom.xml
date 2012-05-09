@@ -5,7 +5,7 @@
     <groupId>com.jweekend</groupId>
     <artifactId>wicket-scala</artifactId>
     <packaging>war</packaging>
-    <version>0.8.7</version>
+    <version>0.8.9</version>
 	<name>Wicket Scala</name>
 
     <dependencies>
@@ -155,10 +155,10 @@
     </repositories>
 	
     <properties>
-		<scala.version>2.9.1</scala.version>
+		<scala.version>2.9.2</scala.version>
     	<slf4j.version>1.6.4</slf4j.version>
 		<log4j.version>1.2.14</log4j.version>
-    	<wicket.version>1.5.4</wicket.version>
+    	<wicket.version>1.5.6</wicket.version>
     	<jetty.version>6.1.25</jetty.version>
 		<junit.version>4.8.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
