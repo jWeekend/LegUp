@@ -80,7 +80,7 @@ public class TestJdbcLocationDAO {
 
 	/**
 	 * Test method for
-	 * {@link com.jweekend.dao.JdbcEventDAO#load(java.io.Serializable)}.
+	 * {@link com.jweekend.dao.JdbcEventDAO#load(Long)}.
 	 */
 	@Test
 	@Transactional

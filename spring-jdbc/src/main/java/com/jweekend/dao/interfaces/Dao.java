@@ -35,14 +35,14 @@ public interface Dao<T extends DomainObject, K extends Serializable> {
 	 * Saves an object of type T.
 	 * 
 	 * @param o
-	 * @return
+	 * @return T
 	 */
 	public T save(T o);
 
 	/**
 	 * Finds all elements of type T.
 	 * 
-	 * @return
+	 * @return {@link List}
 	 */
 	public List<T> findAll();
 
