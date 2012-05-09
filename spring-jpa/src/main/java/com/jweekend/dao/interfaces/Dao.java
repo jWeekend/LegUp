@@ -33,7 +33,7 @@ public interface Dao<T extends DomainObject, K extends Serializable> {
 	 *  Persists object o into repository.
 	 *  
 	 * @param o
-	 * @return
+	 * @return T 
 	 */
 	public T save(T o);
 

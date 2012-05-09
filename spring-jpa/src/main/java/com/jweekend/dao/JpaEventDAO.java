@@ -18,9 +18,6 @@ import com.jweekend.entity.Event;
 @Transactional
 public class JpaEventDAO extends CommonDao<Event, Long> implements EventDao {
 
-	/**
-	 * @param clazz
-	 */
 	public JpaEventDAO() {
 		super(Event.class);
 	}

@@ -16,9 +16,6 @@ import com.jweekend.entity.Location;
 @Transactional
 public class JpaLocationDAO extends CommonDao<Location, Long> implements LocationDao {
 
-	/**
-	 * @param clazz
-	 */
 	public JpaLocationDAO() {
 		super(Location.class);
 	}

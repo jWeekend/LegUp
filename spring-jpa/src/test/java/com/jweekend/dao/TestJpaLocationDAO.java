@@ -29,7 +29,7 @@ public class TestJpaLocationDAO {
 	private LocationDao locationDao;
 
 	/**
-	 * Test method for {@link com.jweekend.dao.JdbcEventDAO#countAll()}.
+	 * Test method for {@link com.jweekend.dao.JpaEventDAO#countAll()}.
 	 */
 	@Test
 	@Transactional
@@ -44,7 +44,7 @@ public class TestJpaLocationDAO {
 
 	/**
 	 * Test method for
-	 * {@link com.jweekend.dao.JdbcEventDAO#delete(com.jweekend.entity.Event)}.
+	 * {@link com.jweekend.dao.JpaEventDAO#delete(com.jweekend.entity.Event)}.
 	 */
 	@Test
 	@Transactional
@@ -65,7 +65,7 @@ public class TestJpaLocationDAO {
 	}
 
 	/**
-	 * Test method for {@link com.jweekend.dao.JdbcEventDAO#findAll()}.
+	 * Test method for {@link com.jweekend.dao.JpaEventDAO#findAll()}.
 	 */
 	@Test
 	@Transactional
@@ -80,7 +80,7 @@ public class TestJpaLocationDAO {
 
 	/**
 	 * Test method for
-	 * {@link com.jweekend.dao.JdbcEventDAO#load(java.io.Serializable)}.
+	 * {@link com.jweekend.dao.JpaEventDAO#load(Long)}.
 	 */
 	@Test
 	@Transactional
@@ -103,7 +103,7 @@ public class TestJpaLocationDAO {
 
 	/**
 	 * Test method for
-	 * {@link com.jweekend.dao.JdbcEventDAO#save(com.jweekend.entity.Event)}.
+	 * {@link com.jweekend.dao.JpaEventDAO#save(com.jweekend.entity.Event)}.
 	 */
 	@Test
 	@Transactional
