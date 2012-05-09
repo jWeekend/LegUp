@@ -5,7 +5,7 @@
 	<groupId>com.jweekend</groupId>
 	<artifactId>wicket-warp-jpa</artifactId>
 	<packaging>war</packaging>
-	<version>0.8.8</version>
+	<version>0.8.9</version>
 	<name>Wicket Warp Guice JPA</name>
 	
 	<repositories>
