@@ -13,6 +13,7 @@ import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.jweekend.config.modules.Module;
+import com.jweekend.data.dao.hibernate.EventDaoHibernateImp;
 import com.jweekend.data.dao.interfaces.EventDao;
 import com.jweekend.data.dataobjects.Event;
 import com.wideplay.warp.persist.WorkManager;
@@ -59,7 +60,7 @@ public class TestEventDaoHibernate {
 	}
 	
 	/**
-	 * Test method for {@link com.jweekend.data.dao.jpa.EventDaoJPAImp#findAll()}.
+	 * Test method for {@link EventDaoHibernateImp#findAll()}.
 	 */
 	@Test
 	public void testFindAll() {
@@ -69,7 +70,7 @@ public class TestEventDaoHibernate {
 	}
 
 	/**
-	 * Test method for {@link com.jweekend.data.dao.jpa.EventDaoJPAImp#countAll()}.
+	 * Test method for {@link EventDaoHibernateImp#countAll()}.
 	 */
 	@Test
 	public void testCountAll() {
@@ -77,7 +78,7 @@ public class TestEventDaoHibernate {
 	}
 
 	/**
-	 * Test method for {@link com.jweekend.data.dao.jpa.AbstractDaoJPAImpl#delete(com.jweekend.data.dataobjects.DomainObject)}.
+	 * Test method for {@link EventDaoHibernateImp#delete(Event)}.
 	 */
 	@Test
 	public void testDelete() {
@@ -86,7 +87,7 @@ public class TestEventDaoHibernate {
 	}
 
 	/**
-	 * Test method for {@link com.jweekend.data.dao.jpa.AbstractDaoJPAImpl#load(java.io.Serializable)}.
+	 * Test method for {@link EventDaoHibernateImp#load(java.io.Serializable)}.
 	 */
 	@Test
 	public void testLoad() {
@@ -95,7 +96,7 @@ public class TestEventDaoHibernate {
 	}
 
 	/**
-	 * Test method for {@link com.jweekend.data.dao.jpa.AbstractDaoJPAImpl#save(com.jweekend.data.dataobjects.DomainObject)}.
+	 * Test method for {@link EventDaoHibernateImp#save(Event)}.
 	 */
 	@Test
 	public void testSave() {
