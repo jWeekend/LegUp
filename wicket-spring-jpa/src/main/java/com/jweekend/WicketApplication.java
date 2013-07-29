@@ -14,7 +14,6 @@ import com.jweekend.pages.EventPage;
  */
 public class WicketApplication extends WebApplication
 {
-
 	protected SpringComponentInjector getSpringInjector()
 	{
 		return new SpringComponentInjector(this);
@@ -25,7 +24,7 @@ public class WicketApplication extends WebApplication
 		super.init();
 
 		mountPage("event", EventPage.class);
-		
+
 		getComponentInstantiationListeners().add(getSpringInjector());
 	}
 

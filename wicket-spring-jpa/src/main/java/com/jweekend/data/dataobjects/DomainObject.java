@@ -8,7 +8,5 @@ import org.apache.wicket.util.io.IClusterable;
  */
 public class DomainObject implements IClusterable
 {
-
 	private static final long serialVersionUID = 1L;
-
 }

@@ -12,8 +12,9 @@ import com.jweekend.data.dataobjects.DomainObject;
  * @param <T> The type of the objects
  * @param <K> The type of the primary key.
  */
-public interface Dao<T extends DomainObject, K extends Serializable> {
-	
+public interface Dao<T extends DomainObject, K extends Serializable>
+{
+
 	/**
 	 * Delete object o from repository.
 	 * 

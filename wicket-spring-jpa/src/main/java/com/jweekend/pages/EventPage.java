@@ -22,21 +22,21 @@ import com.jweekend.data.dataobjects.Event;
  * @author Richard Wilkinson - richard.wilkinson@jweekend.com
  *
  */
-public class EventPage extends WebPage {
-	
+public class EventPage extends WebPage
+{
 	private static final long serialVersionUID = 1L;
-	
+
 	@SpringBean
 	private EventDao eventDao;
-	
+
 	public EventPage(final PageParameters pp)
 	{
 		Form<Event> eventForm = new Form<Event>("eventForm", new CompoundPropertyModel<Event>(new Event()));
 		eventForm.add(new TextField<String>("title").setRequired(true));
 		eventForm.add(new TextField<String>("location").setRequired(true));
-		
+
 		final WebMarkupContainer wmc = new WebMarkupContainer("listContainer");
-		
+
 		wmc.add(new ListView<Event>("list", new PropertyModel<List<Event>>(this, "eventDao.findAll")){
 
 			private static final long serialVersionUID = 1L;
@@ -51,7 +51,7 @@ public class EventPage extends WebPage {
 		});
 		wmc.setOutputMarkupId(true);
 		add(wmc);
-		
+
 		eventForm.add(new AjaxSubmitLink("submit"){
 			private static final long serialVersionUID = 1L;
 
@@ -67,12 +67,10 @@ public class EventPage extends WebPage {
 			
 			@Override
 			protected void onError(AjaxRequestTarget target, Form<?> form) {
-				
+
 			}
 		});
-		
-		
+
 		add(eventForm);
-		
 	}
 }

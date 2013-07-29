@@ -8,16 +8,16 @@ import com.jweekend.data.dataobjects.Event;
  *
  */
 public class DataInitialiser {
-	
+
 	private static String[] dummyTitles = {"Wicket Event", "Party", "Breakfast At Tiffany's", "Holiday"};
 	private static String[] dummyLocations = {"London", "Paris", "Pub", "New York"};
-	
+
 	public void setEventDao(EventDao eventDao) {
 		this.eventDao = eventDao;
 	}
 
 	private EventDao eventDao;
-	
+
 	public void dataInit()
 	{
 		for(int i = 0; i < 10; i++)

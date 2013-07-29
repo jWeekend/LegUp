@@ -15,8 +15,8 @@ import com.jweekend.data.dataobjects.Event;
  *
  */
 @Repository
-public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event, Long> implements EventDao {
-
+public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event, Long> implements EventDao
+{
 	public EventDaoJPAImp() {
 		super(Event.class);
 	}

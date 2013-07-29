@@ -16,17 +16,17 @@ import com.jweekend.pages.EventPage;
  * @author Richard Wilkinson - richard.wilkinson@jweekend.com
  *
  */
-public class TestWicketPages {
-	
+public class TestWicketPages
+{
 	protected WicketTester tester;
-	
+
 	@Before
 	public void setup()
 	{
 		final ApplicationContextMock acm = new ApplicationContextMock();
-		
+
 		EventDao eventDao = Mockito.mock(EventDao.class);
-		
+
 		acm.putBean("eventDao", eventDao);
 		
 		tester = new WicketTester(new WicketApplication(){
@@ -42,7 +42,7 @@ public class TestWicketPages {
 	{
 		tester.startPage(HomePage.class);
 	}
-	
+
 	@Test
 	public void testEventPage()
 	{

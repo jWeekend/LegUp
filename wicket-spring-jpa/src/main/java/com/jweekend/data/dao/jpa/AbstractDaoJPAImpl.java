@@ -15,29 +15,29 @@ import com.jweekend.data.dataobjects.DomainObject;
  *
  */
 @Repository
-public abstract class AbstractDaoJPAImpl<T extends DomainObject, K extends Serializable> implements Dao<T, K> {
-	
+public abstract class AbstractDaoJPAImpl<T extends DomainObject, K extends Serializable> implements Dao<T, K>
+{
 	@PersistenceContext
     private EntityManager entityManager;
-	
+
 	private final Class<T> domainClass;
 
 	public AbstractDaoJPAImpl(Class<T> domainClass) {
 		this.domainClass = domainClass;
 	}
-	
+
 	@Transactional
 	public void delete(T object)
 	{ 
 		entityManager.remove(object);
 	}
-	
+
 	@Transactional
 	public T load(K id)
 	{
 		return entityManager.find(domainClass, id);
 	}
-	
+
 	@Transactional
 	public T save(T object)
 	{
