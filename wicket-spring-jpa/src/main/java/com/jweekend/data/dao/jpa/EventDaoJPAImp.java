@@ -31,6 +31,5 @@ public class EventDaoJPAImp extends AbstractDaoJPAImpl<Event, Long> implements E
 	public int countAll() {		
 		TypedQuery<Long> query = getEntityManager().createQuery("select count (e) from Event e", Long.class);
 		return (query.getSingleResult()).intValue();
-
 	}
 }

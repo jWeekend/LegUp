@@ -20,8 +20,7 @@ public abstract class AbstractDaoJPAImpl<T extends DomainObject, K extends Seria
 	@PersistenceContext
     private EntityManager entityManager;
 	
-	private Class<T> domainClass;
-	
+	private final Class<T> domainClass;
 
 	public AbstractDaoJPAImpl(Class<T> domainClass) {
 		this.domainClass = domainClass;

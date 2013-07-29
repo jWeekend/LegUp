@@ -5,7 +5,17 @@
 
 	<display-name>Wicket Spring</display-name>
 
-	<!-- Open session in view -->
+    <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>com.jweekend.spring.Config</param-value>
+    </context-param>
+
+    <!-- Open session in view -->
 	<filter>
 		<filter-name>osiv</filter-name>
 		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
@@ -28,15 +38,14 @@
 	<filter-mapping>
 		<filter-name>wicket.WicketWarp</filter-name>
 		<url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
 	</filter-mapping>
 
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext.xml</param-value>
-	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-
 </web-app>
+
+

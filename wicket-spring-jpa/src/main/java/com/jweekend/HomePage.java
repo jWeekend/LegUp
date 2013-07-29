@@ -21,6 +21,7 @@ public class HomePage extends WebPage {
 	 *            Page parameters
 	 */
     public HomePage(final PageParameters parameters) {
+	    super(parameters);
 
         // Add the simplest type of label
         add(new BookmarkablePageLink<Void>("event", EventPage.class));
